@@ -1,9 +1,9 @@
 # `craft.users`
 
-If you have Craft Pro, you can access your site’s [users]({entry:docs/users}) from your templates via `craft.users`. It returns an {entry:templating/elementcriteriamodel:link} object.
+If you have Craft Pro, you can access your site’s [users]({entry:docs/users}) from your templates via `craft.users`.
 
 ```twig
-{% for author in craft.users.group('authors') %}
+{% for author in craft.users.group('authors').all() %}
     <li><a href="{{ url('authors/'~author.id) }}">{{ author.name }}</a></li>
 {% endfor %}
 ```
@@ -18,10 +18,10 @@ Only fetch admin users. Possible values include `'1'` and `'not 1'`.
 
 ```twig
 {# Fetch all the admins #}
-{% set admins = craft.users.admin('1') %}
+{% set admins = craft.users.admin('1').all() %}
 
 {# Fetch all the non-admins #}
-{% set nonAdmins = craft.users.admin('not 1') %}
+{% set nonAdmins = craft.users.admin('not 1').all() %}
 ```
 
 ### `can`
@@ -29,10 +29,10 @@ Only fetch admin users. Possible values include `'1'` and `'not 1'`.
 Only fetch users that have a given permission.
 
 ```twig
-{% set authors = craft.users.can('createEntries:5') %}
+{% set authors = craft.users.can('createEntries:5').all() %}
 ```
 
-You can see a list of the permissions Craft comes with [here]({entry:docs/users}#permissions).
+You can see a list of the permissions Craft comes with [here]({en/users.md#permissions).
 
 ### `email`
 
@@ -78,7 +78,7 @@ Limits the results to *X* users.
 
 Skips the first *X* users. For example, if you set `offset(1)`, the would-be second user returned becomes the first.
 
-### `order`
+### `orderBy`
 
 The order the users should be returned in. Possible values include `'username'`, `'firstName'`, `'lastName'`, `'email'`, `'preferredLocale'`, `'status'`, `'lastLoginDate'`, `'dateCreated'`, and `'dateUpdated'`, as well as any textual custom field handles. If you want the users to be sorted in descending order, add “`desc`” after the property name (ex: `'lastLoginDate desc'`). The default value is `'username'`.
 
