@@ -1,6 +1,6 @@
 # `{% cache %}`
 
-This tag will cache a portion of your template, which can improve performance for subsequent requests, as they will have less work to do.
+This tag will cache a portion of your template. Using `cache` can improve performance for subsequent requests of the same page, as they will have less work to do.
 
 ```twig
 {% cache %}
@@ -18,7 +18,7 @@ The `{% cache %}` tag supports the following parameters:
 
 ### `globally`
 
-Caches the output globally (for the current site locale), rather than on a per-URL basis.
+Caches the output globally (for the current site), rather than on a per-URL basis.
 
 ```twig
 {% cache globally %}
@@ -26,7 +26,7 @@ Caches the output globally (for the current site locale), rather than on a per-U
 
 ### `using key`
 
-Specifies the name of the key the cache should use. If this is not provided, a random key will be generated when Twig first parses the template.
+Specifies the name of the key the cache should use. If you do not provide this, Craft will generate a random key when Twig first parses the template.
 
 ```twig
 {% cache using key "page-header" %}
@@ -35,10 +35,10 @@ Specifies the name of the key the cache should use. If this is not provided, a r
 Tip: You can combine this parameter with [`globally`](#globally) to cache templates on a per-page basis, without letting any query string variables get included in the path:
 
 ```twig
-{% cache globally using key craft.request.path %}
+{% cache globally using key craft.app.request.pathInfo %}
 ```
 
-Warning: If you change the template code within a `{% cache %}` that uses a custom key, any existing template caches will not automatically be purged. You will either need to assign the tag a new key, or clear your existing template caches manually using the Clear Caches tool in Settings.
+Warning: If you change the template code within a `{% cache %}` that uses a custom key, Craft will not automatically purge any existing template caches. You will either need to assign the tag a new key, or clear your existing template caches manually using the Clear Caches tool in Utilities.
 
 ### `for`
 
@@ -62,7 +62,7 @@ The accepted duration units are:
 - `year`(`s`)
 - `week`(`s`)
 
-Tip: If this parameter is omitted, your [cacheDuration](config-settings#cacheDuration) config setting will be used to define the default duration.
+Tip: If you omit this parameter, Craft will use your [cacheDuration](config-settings.md#cacheDuration) config setting to define the default duration.
 
 ### `until`
 
@@ -76,7 +76,7 @@ Tip: You can only use [`for`](#for) **_or_** [`until`](#until) in a single `{% c
 
 ### `if`
 
-Only activates the `{% cache %}` tag if a certain condition is met.
+Only activates the `{% cache %}` tag if the request meets a certain condition.
 
 ```twig
 {# Only cache if this is a mobile browser #}
@@ -85,7 +85,7 @@ Only activates the `{% cache %}` tag if a certain condition is met.
 
 ### `unless`
 
-Prevents the `{% cache %}` tag from activating if a certain condition is met.
+Prevents the `{% cache %}` tag from activating if the request meets a certain condition.
 
 ```twig
 {# Don't cache if someone is logged in #}
@@ -96,15 +96,15 @@ Tip: You can only use [`if`](#if) **_or_** [`unless`](#unless) in a single `{% c
 
 ## Cache clearing
 
-Your caches will automatically clear when any elements (entries, assets, etc.) within the tags are saved or deleted.
+Craft will automatically clear your caches when you save or delete any elements (entries, assets, etc.) within the tags.
 
-If you have any element _queries_ within the tags (e.g. a [craft.entries](templating/craft-entries.md) call), and you create a new element that should be returned by one of the queries, Craft will also be able to figure that out and clear the cache.
+If you have any element _queries_ within the tags (e.g. a [craft.entries](templating/craft-entries.md) call), and you create a new element that one of the queries should return, Craft will also be able to figure that out and clear the cache.
 
 You can also manually clear all of your template caches from the Settings page, using the “Clear Caches” tool.
 
 ## When to use `{% cache %}` tags
 
-You should use `{% cache %}` tags any time you’ve got a template that’s causing a lot of database queries, or you’re doing something very computationally expensive with Twig.
+You should use `{% cache %}` tags any time you have a template that’s causing a lot of database queries, or you’re doing something computationally expensive with Twig.
 
 Here are some examples of when to use them:
 
@@ -116,7 +116,7 @@ There are also some cases where it’s _not_ a good idea to use them:
 
 * Don’t use them to cache static text; that will be more expensive than simply outputting the text.
 * You can’t use them outside of top-level `{% block %}` tags within a template that extends another.
-* The `{% cache %}` tag will only cache HTML, so using tags like [{% css %}](templating/includecss) and [{% js %}](templating/includejs) inside of it doesn’t make sense because they don’t actually output HTML therefore their output won’t be cached.
+* The `{% cache %}` tag will only cache HTML, so using tags like [{% css %}](templating/css.md) and [{% js %}](templating/js.md) inside of it doesn’t make sense because they don’t actually output HTML therefore Craft won't cache their output.
 
     ```twig
     {# Bad: #}
