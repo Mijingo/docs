@@ -1,6 +1,6 @@
 # Image Transforms
 
-Rather than requiring that everyone upload images at a certain size, Craft lets you define “image transforms”, which set those rules on Craft’s end instead. Transforms are _non-destructive_, meaning that they have no effect on the original image that was uploaded.
+Rather than requiring that everyone upload images at a certain size, Craft lets you define “image transforms”, which set those rules on Craft’s end instead. Transforms are _non-destructive_, meaning that they have no effect on the original image you upload.
 
 ## Defining Transforms from the Control Panel
 
@@ -16,13 +16,13 @@ Each transform has the following settings:
 * **Quality** - the transform’s resulting image quality (0 to 100)
 * **Image Format** – the transform’s resulting image format
 
-**Mode** can be set to the following values:
+You can set **Mode** to the following values:
 
 * **Crop** – Crops the image to the specified width and height, scaling the image up if necessary. (This is the default mode.)
 * **Fit**  – Scales the image so that it is as big as possible with all dimensions fitting within the specified width and height.
 * **Stretch** – Stretches the image to the specified width and height.
 
-If **Mode** is set to “Crop”, an additional “Crop Position” setting will appear, where you can define which area of the image should be treated as the focal point when cropping. Its options include:
+If you set **Mode** to “Crop”, an additional “Crop Position” setting will appear, where you can define the area of the image Craft should treat as the focal point when cropping. Its options include:
 
 * Top-Left
 * Top-Center
@@ -34,11 +34,11 @@ If **Mode** is set to “Crop”, an additional “Crop Position” setting will
 * Bottom-Center
 * Bottom-Right
 
-If you leave either **Width** or **Height** blank, that dimension will be set to whatever maintains the image’s aspect ratio. So for example, if you have an image that is 600 by 400 pixels, and you set a transform’s Width to 60, but leave Height blank, the resulting height will be 40.
+If you leave either **Width** or **Height** blank, Craft will set that dimension to whatever maintains the image’s aspect ratio. For example, if you have an image that is 600 by 400 pixels, and you set a transform’s Width to 60, but leave Height blank, the resulting height will be 40.
 
 If you leave **Quality** blank, Craft will use the quality set by your [defaultImageQuality]({entry:docs/config-settings}#defaultImageQuality) config setting.
 
-**Image Format** can be set to the following values:
+You can set **Image Format** to the following values:
 
 * jpg
 * png
@@ -48,7 +48,7 @@ If you leave **Image Format** blank, Craft will use the original image’s forma
 
 ### Applying CP-defined Transforms to Images
 
-To output an image with a transform applied, simply pass your transform’s handle into your [AssetFileModel’s]({entry:templating/assetfilemodel}) `getUrl()`, `getWidth()`, and `getHeight()` functions:
+To output an image with a transform applied, simply pass your transform’s handle into your [AssetFileModel’s](templating/variables/assetfilemodel.md) `getUrl()`, `getWidth()`, and `getHeight()` functions:
 
 ```twig
 <img src="{{ asset.getUrl('thumb') }}" width="{{ asset.getWidth('thumb') }}" height="{{ asset.getHeight('thumb') }}">
@@ -76,14 +76,14 @@ Then you can pass that object into your AssetFileModel’s `getUrl()`, `getWidth
 <img src="{{ asset.getUrl(thumb) }}" width="{{ asset.getWidth(thumb) }}" height="{{ asset.getHeight(thumb) }}">
 ```
 
-Note how in that example there are no quotes around “`thumb`”, like there were in the first one. That’s because in the first one, we were passing a _string_ set to a CP-defined transform’s handle, whereas in this example we’re passing a _variable_ referencing the ‘thumb’ object we created within the template.
+Note: In this example there are no quotes around “`thumb`”, like there were in the first one. That’s because in the first one, we pass a _string_ set to a CP-defined transform’s handle, whereas in this example we’re passing a _variable_ referencing the ‘thumb’ object we created within the template.
 
 ### Possible Values
 
 All of the same settings available to CP-defined transforms are also available to template-defined transforms.
 
-* The `mode` property can be set to either `'crop'`, `'fit'`, or `'stretch'`.
-* If `mode` is set to `'crop'`, you can pass a `position` property, set to either `'top-left'`, `'top-center'`, `'top-right'`, `'center-left'`, `'center-center'`, `'center-right'`, `'bottom-left'`, `'bottom-center'`, or `'bottom-right'`.
-* `width` and `height` can be set to integers or omitted.
-* `quality` can be set to a number between 0 and 100, or omitted.
-* `format` can be set to `'jpg'`, `'gif'`, `'png'`, or `'Auto'`.
+* You can set the `mode` property to either `'crop'`, `'fit'`, or `'stretch'`.
+* If you set `mode` to `'crop'`, you can pass a `position` property, set to either `'top-left'`, `'top-center'`, `'top-right'`, `'center-left'`, `'center-center'`, `'center-right'`, `'bottom-left'`, `'bottom-center'`, or `'bottom-right'`.
+* You can set `width` and `height` to integers or omitted.
+* `quality` allows a number between 0 and 100, or you can omit it.
+* `format` allows the settings `'jpg'`, `'gif'`, `'png'`, or `'Auto'`.
