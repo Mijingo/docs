@@ -49,7 +49,7 @@ Craft 3 Documentation
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
 - [Tags](en/templating/tags.md)
-- Querying Elements
+- [Querying Elements](en/templating/querying-elements/index.md)
 - Variables
 - More
 - Examples

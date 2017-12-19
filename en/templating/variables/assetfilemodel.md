@@ -1,6 +1,6 @@
 # AssetFileModel
 
-Whenever you’re dealing with an [asset]({entry:docs/assets}) in your template, you’re actually working with an AssetFileModel object.
+Whenever you’re dealing with an [asset](en/assets.md) in your template, you’re actually working with an AssetFileModel object.
 
 ## Simple Output
 
@@ -20,7 +20,7 @@ A [DateTime]({entry:templating/datetime}) object of the date the asset was creat
 
 ### `dateUpdated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the asset was last updated.
+A [DateTime](en/templating/datetime.md) object of the date the asset was last updated.
 
 ### `extension`
 
@@ -58,9 +58,9 @@ The possible values are:
 
 {entry:snippets/asset-file-kinds:body}
 
-### `locale`
+### `site`
 
-The locale the asset was fetched in.
+The site the asset was fetched in.
 
 ### `link`
 
@@ -86,13 +86,13 @@ The size of the file in bytes. You can output it as a formatted filesize using C
 {{ file.size|filesize }}
 ```
 
-### `source`
+### `volume`
 
-Alias of [`getSource()`](#getSource).
+Alias of [`getVolume()`](#getVolume).
 
-### `sourceId`
+### `volumeId`
 
-The ID of the file’s asset source.
+The ID of the file’s asset volume.
 
 ### `title`
 
@@ -147,15 +147,15 @@ Returns the next asset that should show up in a list based on the parameters ent
 
 Returns the previous asset that would have shown up in a list based on the parameters entered. This function accepts either a `craft.assets` variable (sans output function), or a parameter array.
 
-### `getSource()`
+### `getVolume()`
 
-Returns an {entry:templating/assetsourcemodel:link} object representing the asset’s source.
+Returns an [AssetSourceModel](assetsourcemodel.md) object representing the asset’s source.
 
 ### `getUrl( transform )`
 
 Returns the image’s URL.
 
-You may optionally pass in a transform handle/object to get the url of the image for the given transform. (See {entry:docs/image-transforms:link} for more info.)
+You may optionally pass in a transform handle/object to get the url of the image for the given transform. (See [Image Transforms](en/image-transforms.md) for more info.)
 
 If you’ve already set a default transform via [`setTransform()`](#setTransform) and you wish to get the original image URL, you can pass in `false` instead.
 
@@ -169,7 +169,7 @@ If you’ve already set a default transform via [`setTransform()`](#setTransform
 
 ### `setTransform( transform )`
 
-Sets the default transform that should be used by [`getWidth()`](#getWidth), [`getHeight()`](#getHeight), and [`getUrl()`](#getUrl), if no alternate transform is provided to those functions. You can pass in either an asset transform’s handle (as a string), or an object defining the transform.
+Sets the default transform that Craft should use by [`getWidth()`](#getWidth), [`getHeight()`](#getHeight), and [`getUrl()`](#getUrl), if you don't provide an alternate transform. You can pass in either an asset transform’s handle (as a string), or an object defining the transform.
 
 ```twig
 {% set transform = {
