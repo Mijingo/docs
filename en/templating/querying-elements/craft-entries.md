@@ -82,7 +82,7 @@ Indexes the results by a given property. Possible values include `'id'` and `'ti
 
 ### `limit`
 
-Limits the results to *X* entries.
+Limits the results to *X* entries. Default is `null` (no limit).
 
 ### `site`
 
