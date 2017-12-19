@@ -1,9 +1,9 @@
 # `craft.assets`
 
-You can access your site’s [assets]({entry:docs/assets}) from your templates via `craft.assets`. It returns an {entry:templating/elementcriteriamodel:link} object.
+You can access your site’s [assets](en/assets.md) from your templates via `craft.assets`.
 
 ```twig
-{% for image in craft.assets.kind('image') %}
+{% for image in craft.assets.kind('image').all() %}
     <li><img src="{{ image.getUrl('thumb') }}" alt="{{ image.title }}"></li>
 {% endfor %}
 ```
