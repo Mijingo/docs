@@ -1,9 +1,9 @@
 # `craft.entries`
 
-You can access your site’s [entries]({entry:docs/sections-and-entries}) from your templates via `craft.entries`. It returns an {entry:templating/elementcriteriamodel:link} object.
+You can access your site’s [entries](en/sections-and-entries) from your templates via `craft.entries`.
 
 ```twig
-{% for entry in craft.entries.section('news').limit(10) %}
+{% for entry in craft.entries.section('news').limit(10).all() %}
     <article>
         <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
         {{ entry.summary }}
@@ -56,9 +56,9 @@ Only fetch entries with a Post Date that is before the given date.
 
 Only fetch entries at a certain level within a Structure section.
 
-### `localeEnabled`
+### `enabledForSite`
 
-Set to `false` to fetch entries which aren’t actually enabled for the current site locale. (By default they won’t show up.)
+Set to `false` to fetch entries that aren’t enabled for the current site. (By default they won’t show up.)
 
 ### `descendantOf`
 
@@ -84,9 +84,9 @@ Indexes the results by a given property. Possible values include `'id'` and `'ti
 
 Limits the results to *X* entries.
 
-### `locale`
+### `site`
 
-The locale the entries should be returned in. (Defaults to the current site locale.)
+The site the entries should be returned in. Defaults to the current site.
 
 ### `nextSiblingOf`
 
@@ -98,9 +98,9 @@ Skips the first *X* entries.
 
 For example, if you set `offset(1)`, the would-be second entry returned becomes the first.
 
-### `order`
+### `orderBy`
 
-The order the entries should be returned in. Possible values include `'title'`, `'id'`, `'authorId'`, `'sectionId'`, `'slug'`, `'uri'`, `'postDate'`, `'expiryDate'`, `'dateCreated'`, and `'dateUpdated'`, as well as any textual custom field handles. If you want the entries to be sorted in descending order, add “`desc`” after the property name (ex: `'postDate desc'`). The default value is `'postDate desc'`.
+The order Craft should return the entries. Possible values include `'title'`, `'id'`, `'authorId'`, `'sectionId'`, `'slug'`, `'uri'`, `'postDate'`, `'expiryDate'`, `'dateCreated'`, and `'dateUpdated'`, as well as any textual custom field handles. If you want the entries to be sorted in descending order, add “`desc`” after the property name (ex: `'postDate desc'`). The default value is `'postDate desc'`.
 
 ### `positionedAfter`
 
