@@ -24,4 +24,4 @@ The name of the source.
 
 ### `type`
 
-The type of source it is (`'Local'`, `'S3'`, `'Rackspace'`, or `'GoogleCloud'`).
+The type of volume it is (`'Local'`, `'S3'`, `'Rackspace'`, or `'GoogleCloud'`).

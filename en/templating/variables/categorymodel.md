@@ -1,6 +1,6 @@
 # CategoryModel
 
-Whenever you’re dealing with a [category]({entry:docs/categories}) in your template, you’re actually working with a CategoryModel object.
+Whenever you’re dealing with a [category](en/categories.md) in your template, you’re actually working with a CategoryModel object.
 
 ## Simple Output
 
@@ -29,11 +29,11 @@ Alias of [getCpEditUrl()](#getCpEditUrl).
 
 ### `dateCreated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the category was created.
+A [DateTime](en/templating/datetime.md) object of the date the category was created.
 
 ### `dateUpdated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the category was last updated.
+A [DateTime](en/templating/datetime.md) object of the date the category was last updated.
 
 ### `descendants`
 
@@ -51,7 +51,7 @@ Alias of [getGroup()](#getGroup).
 
 Whether the category has any descendants.
 
-Tip: `hasDescendants` will return `true` even if all of the descendants are disabled. If you want to determine if the category has any enabled descendants, you can do this instead:
+Tip: `hasDescendants` will return `true` even if you disable all of the descendants. If you want to determine if the category has any enabled descendants, you can do this instead:
 
 ```twig
 {% set hasDescendants = category.getDescendants().total() != 0 %}
@@ -120,19 +120,19 @@ CategoryModel objects have the following methods:
 
 ### `getAncestors( distance )`
 
-Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s ancestors (if it lives in a Structure section). You can limit it to only return ancestors that are up to a certain distance away by passing the distance as an argument.
+Returns the category’s ancestors (if it lives in a Structure section). You can limit it to only return ancestors that are up to a certain distance away by passing the distance as an argument.
 
 ### `getChildren()`
 
-Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s children. (This is an alias for `getDescendants(1)`)
+Returns the category’s children. This is an alias for `getDescendants(1)`.
 
 ### `getDescendants( distance )`
 
-Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s descendants. You can limit it to only return descendants that are up to a certain distance away by passing the distance as an argument.
+Returns the category’s descendants. You can limit it to only return descendants that are up to a certain distance away by passing the distance as an argument.
 
 ### `getGroup()`
 
-Returns a [CategoryGroupModel]({entry:templating/categorygroupmodel}) object representing the category’s group.
+Returns a [CategoryGroupModel](en/templating/variables/categorygroupmodel.md) object representing the category’s group.
 
 ### `getLink()`
 
@@ -173,12 +173,12 @@ Returns a category’s previous sibling, if there is one.
 Tip: `getPrevSibling()` will return the previous sibling whether or not it’s enabled. If you want to get the closest enabled sibling, you can do this instead:
 
 ```twig
-{% set prevSibling = craft.categories.positionedBefore(category).order('lft desc').first() %}
+{% set prevSibling = craft.categories.positionedBefore(category).order('lft desc').one() %}
 ```
 
 ### `getSiblings()`
 
-Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s siblings (if it lives in a Structure section).
+Returns the category’s siblings (if it lives in a Structure section).
 
 ### `getUrl()`
 
@@ -193,7 +193,7 @@ Returns whether the category has any descendants.
 Returns whether the category is an ancestor of another category.
 
 ```twig
-{% nav page in craft.categories.group('whiskey') %}
+{% nav page in craft.categories.group('whiskey').all() %}
     {% set expanded = category is defined and item.isAncestorOf(category) %}
     <li{% if expanded %} class="expanded"{% endif %}>
         {{ item.getLink() }}

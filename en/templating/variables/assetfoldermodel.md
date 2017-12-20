@@ -1,6 +1,6 @@
 # AssetFolderModel
 
-AssetFolderModel objects represent the folders that [assets]({entry:docs/assets}) live in.
+AssetFolderModel objects represent the folders that [assets](en/assets.md) live in.
 
 ## Simple Output
 
@@ -34,9 +34,9 @@ The ID of the parent folder.
 
 The path to the folder.
 
-### `sourceId`
+### `volumeId`
 
-The ID of the folder’s asset source.
+The ID of the folder’s asset volume.
 
 
 ## Methods
