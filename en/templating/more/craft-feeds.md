@@ -1,6 +1,6 @@
-# `craft.feeds`
+# `craft.app.feeds`
 
-You can capture RSS and Atom feeds using `craft.feeds`.
+You can capture RSS and Atom feeds using `craft.app.feeds`.
 
 ## Methods
 
@@ -10,7 +10,7 @@ The following methods are available:
 
 Returns the items in the feed located at the given URL.
 
-Only the first argument is required (`url`). If `limit` is passed, the function will return no more than that many items. If `offset` is passed, that many items will be skipped from the beginning of the feed. And if `cacheDuration` is passed, the results will be cached for the given amount of time. (If no `cacheDuration` is passed, Craft will default to the time specified by the [cacheDuration]({entry:docs/config-settings}#cacheDuration) config setting.)
+Only the first argument is required (`url`). If `limit` is passed, the function will return no more than that many items. If `offset` is passed, that many items will be skipped from the beginning of the feed. And if `cacheDuration` is passed, the results will be cached for the given amount of time. (If no `cacheDuration` is passed, Craft will default to the time specified by the [cacheDuration](/en/configuration.md#cacheDuration) config setting.)
 
 #### Item Properties
 

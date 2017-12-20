@@ -1,31 +1,31 @@
-# `craft.globals`
+# `craft.app.globals`
 
-You can get info about your site’s globals via `craft.globals`.
+You can get info about your site’s globals via `craft.app.globals`.
 
 ## Methods
 
 The following methods are available:
 
-### `getAllSets()`
+### `allSets`
 
 Returns an array of all global sets.
 
-### `getEditableSets()`
+### `editableSets`
 
 Returns an array of all global sets that the current user has permission to edit.
 
-### `getTotalSets()`
+### `totalSets`
 
 Returns an array of the total number of global sets.
 
-### `getTotalEditableSets()`
+### `totalEditableSets`
 
 Returns an array of the total number of global sets that the current user has permission to edit.
 
-### `getSetById( id, locale )`
+### `getSetById( id, site )`
 
-Returns a global set by its ID, and optionally in a particular locale.
+Returns a global set by its ID, and optionally in a particular site.
 
-### `getSetByHandle( handle, locale )`
+### `getSetByHandle( handle, site )`
 
-Returns a global set by its handle, and optionally in a particular locale.
+Returns a global set by its handle, and optionally in a particular site.

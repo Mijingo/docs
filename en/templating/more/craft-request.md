@@ -1,14 +1,22 @@
-# `craft.request`
+# `craft.app.request`
 
-You can get all sorts of info about the current request from `craft.request`.
+You can get all sorts of info about the current request from `craft.app.request`.
 
 ## Properties
 
 The following properties are available:
 
-### `firstSegment`
+### `segments`
 
-Alias of [`getFirstSegment()`](#getFirstSegment).
+Returns all segments. Use a filter to isolate a particular segment:
+
+```twig
+
+{{ craft.app.request.segments | first }}
+{{ craft.app.request.segments | last }}
+
+```
+
 
 ### `isAjax`
 
@@ -19,20 +27,16 @@ Whether the current request is an Ajax request.
 Whether the current request is a Live Preview request.
 
 ```twig
-{% if not craft.request.isLivePreview %}
+{% if not craft.app.request.isLivePreview %}
     <script type="text/javascript">
         // Google Analytics tracking code
     </script>
 {% endif %}
 ```
 
-### `isSecure`
+### `isSecureConnection`
 
-Whether the current request is over SSL.
-
-### `lastSegment`
-
-Alias of [`getLastSegment()`](#getLastSegment).
+Whether the current request is over SSL. Returns a boolean.
 
 ### `pageNum`
 
@@ -88,9 +92,6 @@ Returns the first path segment in the URL.
 
 Returns the last path segment in the URL.
 
-### `getPageNum()`
-
-Returns the current pagination page number.
 
 ### `getParam( name )`
 
