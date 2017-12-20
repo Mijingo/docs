@@ -1,6 +1,6 @@
 # TagGroupModel
 
-Whenever you’re dealing with a [tag group]({entry:docs/tags}#tag-groups) in your template, you’re actually working with a TagGroupModel object.
+Whenever you’re dealing with a [tag group](en/tags.md#tag-groups) in your template, you’re actually working with a TagGroupModel object.
 
 ## Simple Output
 

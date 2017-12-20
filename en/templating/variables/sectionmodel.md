@@ -1,6 +1,6 @@
 # SectionModel
 
-Whenever you’re dealing with a [section]({entry:docs/sections-and-entries}#sections) in your template, you’re actually working with a SectionModel object.
+Whenever you’re dealing with a [section](en/sections-and-entries.md#sections) in your template, you’re actually working with a SectionModel object.
 
 ## Simple Output
 

@@ -1,6 +1,6 @@
 # MatrixBlockModel
 
-Whenever you’re dealing with a [Matrix]({entry:docs/matrix-fields}) block in your template, you’re actually working with a MatrixBlockModel object.
+Whenever you’re dealing with a [Matrix](en/matrix-fields.md) block in your template, you’re actually working with a MatrixBlockModel object.
 
 ## Properties
 
@@ -8,11 +8,11 @@ MatrixBlockModel objects have the following properties:
 
 ### `dateCreated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the block was created.
+A [DateTime](en/templating/datetime.md) object of the date the block was created.
 
 ### `dateUpdated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the block was last updated.
+A [DateTime](en/temlating/datetime.md) object of the date the block was last updated.
 
 ### `fieldId`
 
@@ -22,9 +22,9 @@ The ID of the Matrix field the block belongs to.
 
 The block’s ID.
 
-### `locale`
+### `site`
 
-The locale the block was fetched in.
+The site the block was fetched in.
 
 ### `next`
 

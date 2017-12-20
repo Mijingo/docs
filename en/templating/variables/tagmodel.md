@@ -27,9 +27,9 @@ The tag’s group ID.
 
 The tag’s ID.
 
-### `locale`
+### `site`
 
-The locale the tag was fetched in.
+The site the tag was fetched in.
 
 ### `next`
 
@@ -54,7 +54,7 @@ TagModel objects have the following methods:
 
 ### `getGroup()`
 
-Returns a {entry:templating/taggroupmodel:link} object representing the tag group that the tag belongs to.
+Returns a [TagGroupModel](en/templating/variables/taggroupmodel.md) object representing the tag group that the tag belongs to.
 
 ### `getNext( params )`
 

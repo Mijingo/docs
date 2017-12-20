@@ -1,6 +1,6 @@
 # UserModel
 
-Whenever you’re dealing with a [user]({entry:docs/users}) in your template, you’re actually working with a UserModel object.
+Whenever you’re dealing with a [user](en/users.md) in your template, you’re actually working with a UserModel object.
 
 ## Simple Output
 
@@ -21,11 +21,11 @@ Whether the user is an admin.
 
 ### `dateCreated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the user was created.
+A [DateTime](en/templating/datetime.md) object of the date the user was created.
 
 ### `dateUpdated`
 
-A [DateTime]({entry:templating/datetime}) object of the date the user was last updated.
+A [DateTime](en/templating/datetime.md) object of the date the user was last updated.
 
 ### `email`
 
@@ -120,7 +120,7 @@ Returns the user’s first name if they’ve entered it, otherwise their usernam
 
 ### `getGroups()`
 
-Returns an array of {entry:templating/usergroupmodel:link} objects that the user belongs to.
+Returns an array of [UserGroupModel](en/templating/variables/usergroupmodel.md) objects that the user belongs to.
 
 ### `getName()`
 
@@ -180,4 +180,4 @@ Here’s an example of the `getPrev()` and `getNext()` methods in action:
 
 ### `isInGroup( group )`
 
-Returns whether the user belongs to a given group. This method accepts a {entry:templating/usergroupmodel:link} instance, a group ID, or a group handle (string).
+Returns whether the user belongs to a given group. This method accepts a [UserGroupModel](en/templating/variables/usergroupmodel.md) instance, a group ID, or a group handle (string).
