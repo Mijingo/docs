@@ -1,0 +1,17 @@
+# Variables
+
+- [AssetFileModel](/en/templating/variables/assetfilemodel.md)
+- [AssetFolderModel](/en/templating/variables/assetfoldermodel.md)
+- [AssetSourceModel](/en/templating/variables/assetsourcemodel.md)
+- [CategoryGroupModel](/en/templating/variables/categorygroupmodel.md)
+- [CategoryModel](/en/templating/variables/categorymodel.md)
+- [DateTime](/en/templating/variables/datetime.md)
+- [EntryModel](/en/templating/variables/entrymodel.md)
+- [EntryTypeModel](/em/templating/variables/entrytypemodel.md)
+- [GlobalSetsModel](/en/templating/variables/globalsetsmodel.md)
+- [MatrixBlockModel](/en/templating/variables/matrixblockmodel.md)
+- [SectionModel](/en/templating/variables/sectionmodel.md)
+- [TagGroupModel](/en/templating/variables/taggroupmodel.md)
+- [TagModel](/en/templating/variables/tagmodel.md)
+- [UserGroupModel](/en/templating/variables/usergroupmodel.md)
+- [UserModel](/en/templating/variables/usermodel.md)
